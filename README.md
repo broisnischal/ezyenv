@@ -8,14 +8,16 @@ A simple CLI tool to automatically generate `.env.example` files from your `.env
 # npm
 npx ezyenv
 
+
+# bun
+bunx ezyenv
+
 # yarn
 yarn global add ezyenv
 
 # pnpm
 pnpm add -g ezyenv
 
-# bun
-bunx ezyenv
 ```
 
 ## Quick Install
