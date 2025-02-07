@@ -1,0 +1,19 @@
+{
+  "name": "ezyenv",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "type": "module",
+  "private": false,
+  "bin": {
+    "ezyenv": "./index.ts"
+  },
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
