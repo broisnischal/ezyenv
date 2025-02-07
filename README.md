@@ -2,6 +2,22 @@
 
 A simple CLI tool to automatically generate `.env.example` files from your `.env` files.
 
+## Quick Use
+
+```sh
+# npm
+npx ezyenv
+
+# yarn
+yarn global add ezyenv
+
+# pnpm
+pnpm add -g ezyenv
+
+# bun
+bunx ezyenv
+```
+
 ## Quick Install
 
 ```sh
