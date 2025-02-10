@@ -1,6 +1,25 @@
 {
   "name": "ezyenv",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "description": "A simple CLI tool to automatically generate `.env.example` files from your `.env` files.",
+  "license": "MIT",
+  "author": "Nischal Dahal",
+  "main": "index.ts",
+  "types": "index.ts",
+  "files": [
+    "index.ts"
+  ],
+  "keywords": [
+    "dotenv",
+    "dotenv example",
+    "dotenv generator",
+    "env",
+    "env example",
+    "env generator",
+    "cli",
+    "typescript",
+    "bun"
+  ],
   "module": "index.ts",
   "type": "module",
   "private": false,
@@ -15,5 +34,22 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "homepage": "https://github.com/broisnischal/ezyenv",
+  "engines": {
+    "node": ">=16.0.0",
+    "bun": ">=1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/broisnischal/ezyenv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/broisnischal/ezyenv/issues",
+    "email": "ping@nischal.pro"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/broisnischal"
   }
 }
