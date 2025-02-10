@@ -1,8 +1,14 @@
 #!/usr/bin/env bun
 
-import { $ } from "bun";
+// import { $ } from "bun";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve } from "path";
+
+// const regex = /(?<==).*/g;
+
+const fileName = process.argv?.[2] || ".env";
+
+const envPath = resolve(process.cwd(), fileName);
 
 const envFiles = [
   ".env",
@@ -21,11 +27,12 @@ const envFiles = [
   "preprod.env",
   "qa.env",
   "dev.env",
+  envPath,
 ].filter((file) => existsSync(file));
 
 if (envFiles.length === 0) {
-  console.log("No .env files found.");
-  process.exit(1);
+  console.log("No .env files found !");
+  process.exit(0);
 }
 
 const generateExampleFile = (file: string) => {
@@ -35,7 +42,7 @@ const generateExampleFile = (file: string) => {
 
   const exampleContent = lines
     .map((line) => {
-      if (line.trim().startsWith("#") || !line.includes("=")) return line; // Keep comments and empty lines
+      if (line.trim().startsWith("#") || !line.includes("=")) return line;
       return line.split("=")[0] + "=";
     })
     .join("\n");
