@@ -10,25 +10,7 @@ const fileName = process.argv?.[2] || ".env";
 
 const envPath = resolve(process.cwd(), fileName);
 
-const envFiles = [
-  ".env",
-  ".env.local",
-  ".env.development",
-  ".env.production",
-  "production.env",
-  "development.env",
-  "local.env",
-  "test.env",
-  "staging.env",
-  "qa.env",
-  "dev.env",
-  "prod.env",
-  "stage.env",
-  "preprod.env",
-  "qa.env",
-  "dev.env",
-  envPath,
-].filter((file) => existsSync(file));
+const envFiles = [envPath].filter((file) => existsSync(file));
 
 if (envFiles.length === 0) {
   console.log("No .env files found !");
@@ -48,8 +30,10 @@ const generateExampleFile = (file: string) => {
     .join("\n");
 
   const examplePath = `${file}.example`;
+  const fileName = examplePath.split("/").pop();
+
   writeFileSync(examplePath, exampleContent);
-  console.log(`Generated: ${examplePath}`);
+  console.log(`Generated: ${fileName}`);
 };
 
 envFiles.forEach(generateExampleFile);
