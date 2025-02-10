@@ -1,2 +1,8 @@
 .gitignore
 tsconfig.json
+ezyenv
+install.sh
+TODO.mdx
+tsconfig.json
+*.lockb
+*.lock
