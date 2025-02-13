@@ -61,7 +61,7 @@ const generateExampleFile = (file: string) => {
       addScriptToPackageJSON("ezy", "ezyenv");
     }
 
-    console.log(`Ezy generated : ${fileName}`);
+    console.log(`ezyenv:\x1b[32m created ${fileName}\x1b[0m`);
   } catch (error) {
     console.error(
       `Error processing file '${file}':`,
@@ -102,7 +102,7 @@ export function addScriptToPackageJSON(
     packageJSON.scripts[scriptName] = scriptCommand;
 
     writeFileSync(packageJSONPath, JSON.stringify(packageJSON, null, 2));
-    console.log(`Script '${scriptName}' added to package.json !`);
+    console.log(`Script '${scriptName}' added!`);
   } catch (error) {
     console.error("Error adding script to package.json:", error);
   }

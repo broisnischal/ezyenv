@@ -6,3 +6,5 @@ TODO.mdx
 tsconfig.json
 *.lockb
 *.lock
+*.env
+.env.*
