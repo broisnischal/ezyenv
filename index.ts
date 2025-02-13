@@ -1,10 +1,8 @@
 #!/usr/bin/env bun
 
 // import { $ } from "bun";
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "fs";
 import { resolve } from "path";
-
-// const regex = /(?<==).*/g;
 
 const file = process.argv?.[2];
 const sample = process.argv?.[3] ?? "example"; // sample, default, example, eg
@@ -68,13 +66,7 @@ const generateExampleFile = (file: string) => {
   }
 };
 
-if (file) {
-  generateExampleFile(file);
-} else {
-  envFiles.forEach(generateExampleFile);
-}
-
-/** utl */
+/** utils */
 interface PackageJSON {
   scripts: {
     [key: string]: string;
@@ -111,3 +103,35 @@ export function addScriptToPackageJSON(
     console.error("Error adding script to package.json:", error);
   }
 }
+
+const removeExampleFiles = async () => {
+  try {
+    const files = readdirSync(".").filter(
+      (file: string) =>
+        (/^(?:.*\.env|\.env(?:\..+)?)$/.test(file) &&
+          file.toLowerCase().includes("example")) ||
+        file.toLowerCase().includes("sample") ||
+        file.toLowerCase().includes("eg") ||
+        file.toLowerCase().includes(sample)
+    );
+
+    files.forEach((file: string) => {
+      require("fs").unlinkSync(file);
+    });
+
+    console.log("ezyenv: removed!");
+    process.exit(0);
+  } catch (error) {
+    console.error("Error removing example files:", error);
+  }
+};
+
+if (file === "rm") {
+  removeExampleFiles();
+} else if (file) {
+  generateExampleFile(file);
+} else {
+  envFiles.forEach(generateExampleFile);
+}
+
+process.exit(0);

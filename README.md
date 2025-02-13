@@ -33,16 +33,27 @@ ezyenv automatically creates `.env.example` files by reading your `.env` files a
 ## Features
 
 - 🚀 Automatically generates `.env.example` from `.env` files
-- 🔒 Strips sensitive values while preserving variable names
-- 💡 Maintains comments and file structure
+- 🔒 Multiple environment variable support
+- 💡 Single file support `ezyenv test.env`
 - ⚡️ Simple one-command operation
+- 🔒 Preserves structure while removing sensitive values
+- Preserves single & Multi line comment
+- Remove the example files, `ezyenv rm`
+- add the example sample ext, `ezyenv .env --sample (sample|example|eg|default)`
 
 ## Usage
 
 Navigate to your project directory and run:
 
 ```sh
-ezyenv
+ezyenv # creates `.example` files for each env
+
+ezyenv .env # specifies the file
+
+ezyenv rm # removes the example files
+
+ezyenv .env --sample sample # specifies the sample (sample|example|eg|default)
+
 ```
 
 This will:
