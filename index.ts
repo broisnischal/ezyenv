@@ -8,7 +8,7 @@ import {
   readdirSync,
   unlinkSync,
 } from "fs";
-import { resolve } from "path";
+import { join, resolve } from "path";
 
 const file = process.argv?.[2];
 const sample = process.argv?.[3] ?? "example"; // sample, default, example, eg
@@ -58,7 +58,23 @@ const generateExampleFile = (file: string) => {
     const packageJSON = getPackageJSON();
 
     if (packageJSON && !packageJSON.scripts.ezy) {
-      addScriptToPackageJSON("ezy", "ezyenv");
+      const manager = getPackageManager();
+      switch (manager) {
+        case "npm":
+          addScriptToPackageJSON("ezy", "npx ezyenv");
+          break;
+        case "yarn":
+          addScriptToPackageJSON("ezy", "yarn ezyenv");
+          break;
+        case "pnpm":
+          addScriptToPackageJSON("ezy", "pnpm ezyenv");
+          break;
+        case "bun":
+          addScriptToPackageJSON("ezy", "bunx ezyenv");
+          break;
+        default:
+          console.log("ezyenv:\x1b[31m Script not added! \x1b[0m");
+      }
     }
 
     console.log(`ezyenv:\x1b[32m created ${fileName}\x1b[0m`);
@@ -85,6 +101,33 @@ export function getPackageJSON(): PackageJSON | undefined {
   } catch (error) {
     return undefined;
   }
+}
+
+type PackageManager = "npm" | "yarn" | "pnpm" | "bun" | "unknown";
+
+export function getPackageManager(): PackageManager {
+  const projectDir = process.cwd();
+
+  if (existsSync(join(projectDir, "yarn.lock"))) {
+    return "yarn";
+  }
+
+  if (
+    existsSync(join(projectDir, "pnpm-lock.yaml")) ||
+    existsSync(join(projectDir, "pnpm-workspace.yaml"))
+  ) {
+    return "pnpm";
+  }
+
+  if (existsSync(join(projectDir, "package-lock.json"))) {
+    return "npm";
+  }
+
+  if (existsSync(join(projectDir, "bun.lockb"))) {
+    return "bun";
+  }
+
+  return "unknown";
 }
 
 export function addScriptToPackageJSON(
