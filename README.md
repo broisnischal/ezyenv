@@ -1,13 +1,12 @@
 # ezyenv
 
-A simple CLI tool to automatically generate `.env.example` files from your `.env` files.
+Push `env` to github but using ezyenv which is tool to automatically generate sample env files from your existing `.env` files! making example env file, easy, intutive to share. This helps teams share environment variable templates without exposing actual credentials
 
 ## Quick Use
 
 ```sh
 # npm
 npx ezyenv
-
 
 # bun
 bunx ezyenv
@@ -20,15 +19,11 @@ pnpm add -g ezyenv
 
 ```
 
-## Quick Install
+## Quick Install CLI
 
 ```sh
 curl -fsSL https://l.nischal.pro/env | sudo sh
 ```
-
-## What does it do?
-
-ezyenv automatically creates `.env.example` files by reading your `.env` files and removing sensitive values while keeping the structure. This helps teams share environment variable templates without exposing actual credentials.
 
 ## Features
 
@@ -37,11 +32,11 @@ ezyenv automatically creates `.env.example` files by reading your `.env` files a
 - 💡 Single file support `ezyenv test.env`
 - ⚡️ Simple one-command operation
 - 🔒 Preserves structure while removing sensitive values
-- Preserves single & Multi line comment
-- Remove the example files, `ezyenv rm`
-- add the example sample ext, `ezyenv .env --sample (sample|example|eg|default)`
+- 🔒 Preserves single & Multi line comment
+- ⚡️ Remove the example files, `ezyenv rm`
+- 🚀 add the example sample ext, `ezyenv .env --sample (sample|example|eg|default)`
 
-## Usage
+## Usage Guide
 
 Navigate to your project directory and run:
 
@@ -55,14 +50,6 @@ ezyenv rm # removes the example files
 ezyenv .env --sample sample # specifies the sample (sample|example|eg|default)
 
 ```
-
-This will:
-
-1. Find any `.env` files in your current directory
-2. Create corresponding `.env.example` files
-3. Copy the structure while removing sensitive values
-
-Example:
 
 Your `.env` file:
 
@@ -81,6 +68,10 @@ DB_USER=
 DB_PASS=
 API_KEY=
 ```
+
+## Keywords
+
+dotenv-sample-generator, dotenv-eg-generator, dotenv generator, env example, env generator, env-example-generator, generate-env-example, dotenv, dotenv example, environement example
 
 ## Contributing
 
