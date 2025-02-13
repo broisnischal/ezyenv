@@ -1,22 +1,26 @@
 #!/usr/bin/env bun
 
 // import { $ } from "bun";
-import { readFileSync, writeFileSync, existsSync, readdirSync } from "fs";
+import {
+  readFileSync,
+  writeFileSync,
+  existsSync,
+  readdirSync,
+  unlinkSync,
+} from "fs";
 import { resolve } from "path";
 
 const file = process.argv?.[2];
 const sample = process.argv?.[3] ?? "example"; // sample, default, example, eg
 
 const envFiles = existsSync(".")
-  ? require("fs")
-      .readdirSync(".")
-      .filter(
-        (file: string) =>
-          /^(?:.*\.env|\.env(?:\..+)?)$/.test(file) &&
-          !file.toLowerCase().includes("example") &&
-          !file.toLowerCase().includes("sample") &&
-          !file.toLowerCase().includes(sample)
-      )
+  ? readdirSync(".").filter(
+      (file: string) =>
+        /^(?:.*\.env|\.env(?:\..+)?)$/.test(file) &&
+        !file.toLowerCase().includes("example") &&
+        !file.toLowerCase().includes("sample") &&
+        !file.toLowerCase().includes(sample)
+    )
   : [];
 
 if (envFiles.length === 0 && !file) {
@@ -116,7 +120,7 @@ const removeExampleFiles = async () => {
     );
 
     files.forEach((file: string) => {
-      require("fs").unlinkSync(file);
+      unlinkSync(file);
     });
 
     console.log("ezyenv: removed!");
