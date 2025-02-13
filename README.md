@@ -1,6 +1,6 @@
 # ezyenv
 
-Push `env` to github but using ezyenv which is tool to automatically generate sample env files from your existing `.env` files! making example env file, easy, intutive to share. This helps teams share environment variable templates without exposing actual credentials
+Push `env` to github but using ezyenv which is tool to automatically generate sample env files from your existing `.env` files! making example env file, easy, intutive to share. This helps teams share environment variable templates without exposing actual credentials.
 
 ## Quick Use
 
