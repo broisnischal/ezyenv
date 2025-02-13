@@ -1,6 +1,6 @@
 {
   "name": "ezyenv",
-  "version": "0.0.12",
+  "version": "0.0.18",
   "readme": "README.md",
   "description": "Push `env` to github but using ezyenv which is tool to automatically generate sample env files from your existing `.env` files! making example env file, easy, intutive to share.",
   "license": "MIT",
@@ -9,24 +9,26 @@
     "email": "ping@nischal.pro",
     "url": "https://nischal-dahal.com.np"
   },
-  "main": "index.ts",
-  "types": "index.ts",
+  "main": "dist/index.cjs",
   "files": [
-    "index.ts",
+    "dist",
     "README.md",
     "LICENSE"
   ],
-  "module": "index.ts",
   "type": "module",
   "private": false,
   "bin": {
-    "ezyenv": "./index.ts"
+    "ezyenv": "dist/index.cjs"
   },
   "scripts": {
-    "start": "bun run index.ts"
+    "start": "bun run index.ts",
+    "build": "tsup index.ts",
+    "ezy": "ezyenv",
+    "exec": "bun build ./index.ts --compile --minify --sourcemap --bytecode --outfile ezyenv"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsup": "^8.3.6"
   },
   "homepage": "https://github.com/broisnischal/ezyenv",
   "engines": {
