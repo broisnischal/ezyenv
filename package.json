@@ -23,7 +23,6 @@
   "scripts": {
     "start": "bun run index.ts",
     "build": "tsup index.ts",
-    "ezy": "ezyenv",
     "exec": "bun build ./index.ts --compile --minify --sourcemap --bytecode --outfile ezyenv"
   },
   "devDependencies": {
