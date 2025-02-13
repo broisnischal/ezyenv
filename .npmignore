@@ -1,10 +1,24 @@
+# Source
+*.ts
+!*.d.ts
+index.ts
+
+# Development files
+.git
+.github
 .gitignore
-tsconfig.json
-ezyenv
-install.sh
-TODO.mdx
-tsconfig.json
-*.lockb
-*.lock
-*.env
-.env.*
+.npmignore
+.env*
+*.log
+test/
+coverage/
+
+# Build artifacts
+*.tsbuildinfo
+*.map
+
+# Misc
+.DS_Store
+node_modules/
+.vscode/
+.idea/

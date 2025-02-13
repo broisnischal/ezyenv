@@ -1,6 +1,6 @@
 {
   "name": "ezyenv",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "readme": "README.md",
   "description": "Push `env` to github but using ezyenv which is tool to automatically generate sample env files from your existing `.env` files! making example env file, easy, intutive to share.",
   "license": "MIT",
@@ -12,7 +12,9 @@
   "main": "index.ts",
   "types": "index.ts",
   "files": [
-    "index.ts"
+    "index.ts",
+    "README.md",
+    "LICENSE"
   ],
   "module": "index.ts",
   "type": "module",
