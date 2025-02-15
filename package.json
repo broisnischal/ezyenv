@@ -1,6 +1,6 @@
 {
   "name": "ezyenv",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "readme": "README.md",
   "description": "Push `env` to github but using ezyenv which is tool to automatically generate sample env files from your existing `.env` files! making example env file, easy, intutive to share.",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "@types/bun": "latest",
     "tsup": "^8.3.6"
   },
-  "homepage": "https://github.com/broisnischal/ezyenv",
+  "homepage": "https://ezyenv.vercel.app/",
   "engines": {
     "node": ">=16.0.0",
     "bun": ">=1.0.0"
