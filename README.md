@@ -85,6 +85,8 @@ dotenv-sample-generator, dotenv-eg-generator, dotenv generator, env example, env
 npm uninstall -g ezyenv 
 
 curl -fsSL https://l.nischal.pro/envdel | sudo sh
+
+brew uninstall ezyenv
 ```
 
 ## Contributing
