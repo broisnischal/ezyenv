@@ -25,6 +25,11 @@ pnpm add -g ezyenv
 curl -fsSL https://l.nischal.pro/env | sudo sh
 ```
 
+
+```sh
+brew install ezyenv
+```
+
 ## Features
 
 - 🚀 Automatically generates `.env.example` from `.env` files
