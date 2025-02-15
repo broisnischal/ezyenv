@@ -73,6 +73,15 @@ API_KEY=
 
 dotenv-sample-generator, dotenv-eg-generator, dotenv generator, env example, env generator, env-example-generator, generate-env-example, dotenv, dotenv example, environement example
 
+
+## Uninstalling 
+
+```sh
+npm uninstall -g ezyenv 
+
+curl -fsSL https://l.nischal.pro/envdel | sudo sh
+```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
