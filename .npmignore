@@ -1,5 +1,6 @@
 # Source
 ezyenv.rb
+ezyenv.sh
 *.ts
 !*.d.ts
 index.ts
